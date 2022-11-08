@@ -3,14 +3,13 @@
 
 #include "FileReader.h"
 #include <iostream>
-using namespace std;
 
 #define IDLEN 9
 #define NAMELEN 32
 
 
 class NameFileReader : public FileReader {
-    int VerifyLine(string line);
+    void VerifyLine(std::string line);
     public:
         using FileReader::FileReader;
         void read_file(StudentList s);

@@ -21,15 +21,13 @@ void NameFileReader::read_file(StudentList s) {
         id = std::stoi(line.substr(0, IDLEN));
         name.assign(line.substr(IDLEN + 2, NAMELEN));
         s.add_student(id, name);
-
-
         /*
         std::cout << line.substr(0, IDLEN) << "\n";
         std::cout << line.substr(11, NAMELEN) << "\n";
         std::cout << "-------------------------- \n";
         */
-
     }
+
     ReadFile.close();
 }
 
@@ -42,11 +40,13 @@ void VerifyLine(std::string line) {
         throw std::invalid_argument("Error in student ID: not numeric");
         //cout << "---wrong id---";
     }
+
     //check middle part
     if (line.substr(9, 2).compare(", ") != 0) {
         throw std::invalid_argument("Error in formatting");
         //cout << "---wrong middle---";
     }
+    
     //check name
     int i = 11;
     while(line[i]) {
