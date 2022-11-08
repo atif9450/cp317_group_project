@@ -2,14 +2,27 @@
 
 void NameFileReader::read_file(StudentList s) {
     int good;
+    int id;
+    std::string name;
     std::string line;
     std::ifstream ReadFile(file_name);
 
     while (std::getline(ReadFile, line)) {
-        if ((good = VerifyLine(line)) <= -1) {
-            //throw std::invalid_argument("Error in input file");
-            //exit(EXIT_FAILURE);
+        //verify line to make sure input is correct
+        try {
+            VerifyLine(line);
         }
+        catch (std::invalid_argument& e) {
+            std::cerr << e.what() << std::endl;
+            exit(EXIT_FAILURE);
+        }
+
+        //add student to studnet list
+        id = std::stoi(line.substr(0, IDLEN));
+        name.assign(line.substr(IDLEN + 2, NAMELEN));
+        s.add_student(id, name);
+
+
         /*
         std::cout << line.substr(0, IDLEN) << "\n";
         std::cout << line.substr(11, NAMELEN) << "\n";
