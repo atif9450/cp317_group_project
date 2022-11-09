@@ -31,7 +31,7 @@ void NameFileReader::read_file(StudentList s) {
     ReadFile.close();
 }
 
-void VerifyLine(std::string line) {
+void NameFileReader::VerifyLine(std::string line) {
     //check ID
     char* p;
     long converted = strtol(line.substr(0, IDLEN).c_str(), &p, 10);
