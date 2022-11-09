@@ -10,7 +10,7 @@ void NameFileReader::read_file(StudentList s) {
     while (std::getline(ReadFile, line)) {
         //verify line to make sure input is correct
         try {
-            NameFileReader::VerifyLine(line);
+            VerifyLine(line);
         }
         catch (std::invalid_argument& e) {
             std::cerr << e.what() << std::endl;
