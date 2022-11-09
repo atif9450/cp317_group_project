@@ -1,5 +1,7 @@
 #include "NameFileReader.h"
 
+void VerifyLine(std::string line);
+
 void NameFileReader::read_file(StudentList s) {
     int good;
     int id;
