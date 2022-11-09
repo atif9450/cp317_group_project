@@ -9,11 +9,10 @@
 
 
 class NameFileReader : public FileReader {
-    private:
-        void VerifyLine(std::string line);
     public:
         using FileReader::FileReader;
         void read_file(StudentList s);
+        void VerifyLine(std::string line);
 };
 
 #endif`
