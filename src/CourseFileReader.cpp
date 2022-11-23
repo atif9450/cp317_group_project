@@ -18,6 +18,7 @@ void CourseFileReader:: read_file(StudentList s) {
     }
 
     std::ifstream ReadFile(file_name);
+    string tempid;
     int id;
     string name;
     int test1;
@@ -30,21 +31,27 @@ void CourseFileReader:: read_file(StudentList s) {
     while (getline(ReadFile, line)){
         // add each student
         stringstream ss(line);
-        id = stoi(getline(ss, id, ','));
+
+        getline(ss, tempid, ',');
+        id = stoi(tempid);
+
         getline(ss, name, ',');
+
         getline(ss, temp, ',');
         test1 = stoi(temp);
+
         getline(ss, temp, ',');
         test2 = stoi(temp);
+
         getline(ss, temp, ',');
         test3 = stoi(temp);
+
         getline(ss, temp, ',');
         finaltest = stoi(temp);
 
-        s.addStudent(id, name, test1, test2, test3, final);
+        s.add_student(id, name, test1, test2, test3, finaltest);
 
     }
-    return 0;
 
     ReadFile.close();
 
