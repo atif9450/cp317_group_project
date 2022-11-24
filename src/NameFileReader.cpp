@@ -38,13 +38,13 @@ void NameFileReader::VerifyLine(std::string line) {
     if (*p != 0) {
         // failed
         throw std::invalid_argument("Error in student ID: not numeric");
-        //cout << "---wrong id---";
+        //cout << "NameFile Reader: Incorrect student ID\n";
     }
 
     //check middle part
     if (line.substr(9, 2).compare(", ") != 0) {
         throw std::invalid_argument("Error in formatting");
-        //cout << "---wrong middle---";
+        //cout << "NameFile Reader: Incorrect formatting";
     }
     
     //check name
@@ -52,7 +52,7 @@ void NameFileReader::VerifyLine(std::string line) {
     while(line[i]) {
         if ((isalpha(line[i]) == 0) && (isspace(line[i]) == 0)) {
             throw std::invalid_argument("Error in student name: not alphabetical");
-            //cout << "---wrong name---";
+            //cout << "NameFile Reader: Incorrect student name";
         }
         i++;
     }
