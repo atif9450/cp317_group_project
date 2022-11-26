@@ -3,7 +3,6 @@
 #include <fstream>
 using namespace std;
 
-// void Student::create_student(int ID, std::string name) {
 Student Student::create_student(int ID, std::string name) {
     Student student;
     student.student_ID = ID;
@@ -34,3 +33,6 @@ void Student::add_course(std::string course, float Test_1, float Test_2, float T
     grades.insert(pair<string, float>(course, final_grade));
 }
 
+int Student::get_student_ID() {
+    return student_ID;
+}
