@@ -1,36 +1,32 @@
 #include "Student.h"
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
-Student Student::create_student(int ID, std::string name) {
-    Student student;
-    student.student_ID = ID;
-    student.student_name = name;
+void Student::create_student(int ID, std::string name) {
+    this->student_ID = ID;
+    this->student_name = name;
 
 //     std:: cout << student.student_ID << "\n";
-//     std:: cout << student.student_name;
-    
-    return student;
+//     std:: cout << student.student_name
 }
 
 void Student::write_grades(std::ofstream& file) {
-
-    std::cout << "test";
-
-    map<string,float>::iterator count;
-    for (count = grades.begin(); count != grades.end(); ++count) {
-        file << student_name << '\t'<< student_ID << '\t'<< count->first<< '\t' << count->second << '\n';
-        // outdata << num[i] << endl;
+    for (final_grade_type f : grades) {
+        std::string s = student_name;
+        s.append(30 - s.length(), ' ');
+        file << student_ID << "\t" << s << "\t" << f.course << "\t" << std::fixed << std::setprecision(1) << f.grade << endl;
     }
-
 }
 
 void Student::add_course(std::string course, float Test_1, float Test_2, float Test_3, float Test_4) {
     float grade = (0.2*Test_1) + (0.2*Test_2)+(0.2*Test_3)+(0.4*Test_4);
     float final_grade = (grade * 10.0) / 10.0;
-
-    grades.insert(pair<string, float>(course, final_grade));
+    final_grade_type f;
+    f.course = course;
+    f.grade = final_grade;
+    grades.push_back(f);
 }
 
 int Student::get_student_ID() {

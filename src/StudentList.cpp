@@ -18,9 +18,7 @@ void StudentList::add_student(int student_ID, std::string name) {
 }
 
 void StudentList::write_final_grades(std::string filename) {
-    std::ofstream file(filename.c_str());
-
-    file << "test";
+    std::ofstream file(filename);
 
     for (Student s : list) {
         s.write_grades(file);
