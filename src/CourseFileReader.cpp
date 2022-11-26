@@ -5,17 +5,9 @@
 
 using namespace std;
 
-void CourseFileReader:: read_file(StudentList s) {
+void CourseFileReader:: read_file(StudentList* s) {
     string line;
     stringstream ss;
-
-    try {
-        VerifyLine(line);
-    }
-    catch (invalid_argument & e) {
-        cerr << e.what() << endl;
-        exit(EXIT_FAILURE);
-    }
 
     std::ifstream ReadFile(file_name);
     string tempid;
@@ -29,6 +21,14 @@ void CourseFileReader:: read_file(StudentList s) {
 
 
     while (getline(ReadFile, line)){
+        try {
+        VerifyLine(line);
+        }
+        catch (invalid_argument & e) {
+            cerr << e.what() << endl;
+            exit(EXIT_FAILURE);
+        }
+        
         // add each student
         stringstream ss(line);
 
@@ -49,10 +49,22 @@ void CourseFileReader:: read_file(StudentList s) {
         getline(ss, temp, ',');
         finaltest = stoi(temp);
 
-        s.add_student(id, name, test1, test2, test3, finaltest);
+        Student* st = s->get_student(id);
+        st->add_course(name, test1, test2, test3, finaltest);
 
     }
 
     ReadFile.close();
 
+}
+
+void CourseFileReader::VerifyLine(std::string line) {
+    regex p("(\\d{9}, [A-Z][A-Z]\\d{3}, \\d{2}, \\d{2}, \\d{2}, \\d{2}\n)");
+    smatch m;
+    std:cout << regex_search(line, m, p) << std::endl;
+    // if (!valid) {
+    //     std::cout << "CourseFileReader: incorrectly formatted line: " << line << std::endl;
+    //     std::cout << "Please format line as such: STUDENT_ID, COURSE_CODE, GRADE1, GRADE2, GRADE3, GRADE4\n" << std::endl;
+    //     throw std::invalid_argument(NULL);
+    // }
 }

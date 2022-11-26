@@ -9,7 +9,7 @@ class FileReader {
     public:
         std::string file_name;
         FileReader(std::string file_name);
-        virtual void read_file(StudentList s)=0;
+        virtual void read_file(StudentList* s)=0;
 };
 
 #endif

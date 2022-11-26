@@ -11,7 +11,7 @@
 class NameFileReader : public FileReader {
     public:
         using FileReader::FileReader;
-        void read_file(StudentList s);
+        void read_file(StudentList* s);
         void VerifyLine(std::string line);
 };
 
