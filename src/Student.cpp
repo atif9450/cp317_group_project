@@ -9,8 +9,8 @@ Student Student::create_student(int ID, std::string name) {
     student.student_ID = ID;
     student.student_name = name;
 
-    std:: cout << student.student_ID << "\n";
-    std:: cout << student.student_name;
+//     std:: cout << student.student_ID << "\n";
+//     std:: cout << student.student_name;
     
     return student;
 }
