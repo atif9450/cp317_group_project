@@ -1,7 +1,3 @@
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <stdlib.h>
 #include "CourseFileReader.h"
 
 using namespace std;
@@ -28,37 +24,26 @@ void CourseFileReader::read_file(StudentList* s) {
             cerr << e.what() << endl;
             exit(EXIT_FAILURE);
         }
-
-        // std::cout << line << std::endl;
-
-        // add each student
         stringstream ss(line);
 
         getline(ss, tempid, ',');
         id = stoi(tempid);
-        // std::cout << id << ",";
 
         getline(ss, name, ',');
-        // std::cout << name << ",";
 
         getline(ss, temp, ',');
         test1 = stoi(temp);
-        // std::cout << test1 << ",";
 
         getline(ss, temp, ',');
         test2 = stoi(temp);
-        // std::cout << test2 << ",";
 
         getline(ss, temp, ',');
         test3 = stoi(temp);
-        // std::cout << test3 << ",";
 
         getline(ss, temp, ',');
         finaltest = stoi(temp);
-        // std::cout << finaltest << ",";
 
         Student* st = s->get_student(id);
-        // std::cout << st->get_student_ID(); "here"
         st->add_course(name, test1, test2, test3, finaltest);
     }
 

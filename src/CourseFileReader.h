@@ -3,6 +3,10 @@
 
 #include "FileReader.h"
 #include <regex>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <stdlib.h>
 
 class CourseFileReader : public FileReader {
     void VerifyLine(std::string);

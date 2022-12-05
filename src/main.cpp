@@ -5,15 +5,14 @@
 #include "CourseFileReader.h"
 
 int main() {
-    std::string nameFile = "C:/Users/ehraa/Documents/GitHub/cp317_group_project/cp317_group_project/testfiles/testfiles/NameFileWrongName.txt";
-    std::string courseFile = "C:/Users/ehraa/Documents/GitHub/cp317_group_project/cp317_group_project/testfiles/testfiles/CourseFile.txt";
+    std::string nameFile, courseFile;
     std::string outFile = "final_grades.txt";
     StudentList sl;
 
-    // std::cout << "Enter path to NameFile.txt: ";
-    // std::cin >> nameFile;
-    // std::cout << "Enter path to CourseFile.txt: ";
-    // std::cin >> courseFile;
+    std::cout << "Enter path to NameFile.txt: ";
+    std::cin >> nameFile;
+    std::cout << "Enter path to CourseFile.txt: ";
+    std::cin >> courseFile;
 
     NameFileReader f1(nameFile);
     CourseFileReader f2(courseFile);

@@ -7,9 +7,6 @@ using namespace std;
 void Student::create_student(int ID, std::string name) {
     this->student_ID = ID;
     this->student_name = name;
-
-//     std:: cout << student.student_ID << "\n";
-//     std:: cout << student.student_name
 }
 
 void Student::write_grades(std::ofstream& file) {
