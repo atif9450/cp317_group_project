@@ -16,6 +16,11 @@ void CourseFileReader::read_file(StudentList* s) {
     int finaltest;
     string temp;
 
+    if (!ReadFile.is_open()) {
+        std::cout << "NameFile.txt failed to open." << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
     while (getline(ReadFile, line)){
         try {
         VerifyLine(line);

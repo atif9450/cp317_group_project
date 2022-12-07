@@ -12,7 +12,7 @@ void Student::create_student(int ID, std::string name) {
 void Student::write_grades(std::ofstream& file) {
     for (final_grade_type f : grades) {
         std::string s = student_name;
-        s.append(30 - s.length(), ' ');
+        s.append(50 - s.length(), ' ');
         file << student_ID << "\t" << s << "\t" << f.course << "\t" << std::fixed << std::setprecision(1) << f.grade << endl;
     }
 }

@@ -7,6 +7,11 @@ void NameFileReader::read_file(StudentList* s) {
     std::string line;
     std::ifstream ReadFile(this->file_name);
 
+    if (!ReadFile.is_open()) {
+        std::cout << "NameFile.txt failed to open." << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
     while (std::getline(ReadFile, line)) {
         //verify line to make sure input is correct
         try {
