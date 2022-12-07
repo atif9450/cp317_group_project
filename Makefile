@@ -1,5 +1,5 @@
 build: bin/coursefilereader.o bin/filereader.o bin/main.o bin/namefilereader.o bin/student.o bin/studentlist.o
-	g++ bin/coursefilereader.o bin/filereader.o bin/main.o bin/namefilereader.o bin/student.o bin/studentlist.o
+	g++ bin/coursefilereader.o bin/filereader.o bin/main.o bin/namefilereader.o bin/student.o bin/studentlist.o -o gen_final_grades.exe
 
 bin/coursefilereader.o: src/CourseFileReader.cpp
 	g++ src/CourseFileReader.cpp -c -o bin/coursefilereader.o
@@ -21,4 +21,4 @@ bin/studentlist.o: src/StudentList.cpp
 
 clean:
 	del bin\*.o
-	del a.exe
+	del gen_final_grades.exe
